@@ -6,6 +6,8 @@ import { PortfolioState } from '@/lib/calc/types';
 import { formatINR, formatDateShort } from '@/lib/utils/format';
 import { canModifyMandate, applySkipMonth } from '@/lib/flex/engine';
 import { useSessionStore } from '@/lib/store/sessionStore';
+import { addMonthsSafe } from '@/lib/utils/date';
+import { FlexConfirmDialog } from './FlexConfirmDialog';
 
 interface SkipStepSheetProps {
   portfolio: PortfolioState;
@@ -20,11 +22,14 @@ export const SkipStepSheet: React.FC<SkipStepSheetProps> = ({
 }) => {
   const { updatePortfolio, logAuditEvent } = useSessionStore();
   const [error, setError] = useState<string | null>(null);
+  const [showConfirm, setShowConfirm] = useState<boolean>(false);
 
   const lockout = canModifyMandate(portfolio.nextDebitDate);
+  const resumptionDate = addMonthsSafe(portfolio.nextDebitDate, 1);
 
-  const handleConfirmSkip = () => {
+  const handleExecuteSkip = () => {
     try {
+      setShowConfirm(false);
       const { updatedState, auditEvent } = applySkipMonth(portfolio);
       updatePortfolio(() => updatedState);
       logAuditEvent(auditEvent.action, auditEvent.details);
@@ -88,10 +93,10 @@ export const SkipStepSheet: React.FC<SkipStepSheetProps> = ({
         </div>
       </div>
 
-      {/* Equal-Prominence CTAs */}
+      {/* Action CTAs */}
       <div className="space-y-2 pt-2">
         <button
-          onClick={handleConfirmSkip}
+          onClick={() => setShowConfirm(true)}
           disabled={!lockout.allowed}
           className="w-full bg-navy hover:bg-navy-dark disabled:opacity-50 text-white font-semibold text-xs py-2.5 rounded-xl transition-colors"
         >
@@ -105,7 +110,28 @@ export const SkipStepSheet: React.FC<SkipStepSheetProps> = ({
           Keep As Is
         </button>
       </div>
+
+      {/* Confirmation Dialog Box */}
+      <FlexConfirmDialog
+        isOpen={showConfirm}
+        title="Confirm 1-Month Skip?"
+        description="Please review your mandate adjustment details before confirming."
+        variant="amber"
+        details={[
+          { label: 'Scheme', value: portfolio.schemeName },
+          { label: 'Upcoming Debit Date', value: formatDateShort(portfolio.nextDebitDate) },
+          { label: 'Amount for this cycle', value: '₹0 (Skipped)', highlight: true },
+          {
+            label: 'Automatic Resumption',
+            value: `${formatDateShort(resumptionDate)} (${formatINR(portfolio.monthlyAmount)})`,
+          },
+        ]}
+        reassurance="All existing units stay invested. No penalty charges or impact on folio."
+        confirmLabel="Yes, Skip Instalment"
+        cancelLabel="Go Back"
+        onConfirm={handleExecuteSkip}
+        onCancel={() => setShowConfirm(false)}
+      />
     </div>
   );
 };
-

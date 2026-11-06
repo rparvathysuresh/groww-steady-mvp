@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-06T15:53:35.770Z",
+  "timestamp": "2026-11-06T16:13:35.877Z",
   "total_cases": 42,
   "intent_agreement_rate": 100,
   "behaviour_agreement_rate": 100,
@@ -62,7 +62,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 29,
+      "latency_ms": 21,
       "is_fallback": false
     },
     {
@@ -86,7 +86,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 3,
+      "latency_ms": 2,
       "is_fallback": false
     },
     {
@@ -110,7 +110,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 2,
       "is_fallback": false
     },
     {
@@ -134,7 +134,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -206,7 +206,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 2,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -254,7 +254,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 2,
+      "latency_ms": 3,
       "is_fallback": false
     },
     {
@@ -278,7 +278,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -302,7 +302,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -326,7 +326,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -350,7 +350,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -446,7 +446,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -470,7 +470,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -544,7 +544,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": true
     },
     {
@@ -622,7 +622,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": true
     },
     {
@@ -722,7 +722,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -770,7 +770,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -796,7 +796,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": true
     },
     {
@@ -874,7 +874,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": true
     },
     {
@@ -898,7 +898,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -922,7 +922,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -946,7 +946,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -970,7 +970,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {

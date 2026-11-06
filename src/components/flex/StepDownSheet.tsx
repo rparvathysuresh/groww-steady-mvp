@@ -7,6 +7,7 @@ import { formatINR, formatDateShort } from '@/lib/utils/format';
 import { canModifyMandate, applyStepDown } from '@/lib/flex/engine';
 import { useSessionStore } from '@/lib/store/sessionStore';
 import { addMonthsSafe } from '@/lib/utils/date';
+import { FlexConfirmDialog } from './FlexConfirmDialog';
 
 interface StepDownSheetProps {
   portfolio: PortfolioState;
@@ -23,12 +24,14 @@ export const StepDownSheet: React.FC<StepDownSheetProps> = ({
   const [amount, setAmount] = useState<number>(500);
   const [cycles, setCycles] = useState<number>(2);
   const [error, setError] = useState<string | null>(null);
+  const [showConfirm, setShowConfirm] = useState<boolean>(false);
 
   const lockout = canModifyMandate(portfolio.nextDebitDate);
   const resumptionDate = addMonthsSafe(portfolio.nextDebitDate, cycles);
 
-  const handleConfirmStepDown = () => {
+  const handleExecuteStepDown = () => {
     try {
+      setShowConfirm(false);
       const { updatedState, auditEvent } = applyStepDown(portfolio, amount, cycles);
       updatePortfolio(() => updatedState);
       logAuditEvent(auditEvent.action, auditEvent.details);
@@ -120,10 +123,10 @@ export const StepDownSheet: React.FC<StepDownSheetProps> = ({
         </p>
       </div>
 
-      {/* Equal-Prominence CTAs */}
+      {/* Action CTAs */}
       <div className="space-y-2 pt-2">
         <button
-          onClick={handleConfirmStepDown}
+          onClick={() => setShowConfirm(true)}
           disabled={!lockout.allowed}
           className="w-full bg-navy hover:bg-navy-dark disabled:opacity-50 text-white font-semibold text-xs py-2.5 rounded-xl transition-colors"
         >
@@ -137,7 +140,28 @@ export const StepDownSheet: React.FC<StepDownSheetProps> = ({
           Keep As Is
         </button>
       </div>
+
+      {/* Confirmation Dialog Box */}
+      <FlexConfirmDialog
+        isOpen={showConfirm}
+        title="Confirm Temporary Step-Down?"
+        description="Please review your reduced SIP schedule before confirming."
+        variant="blue"
+        details={[
+          { label: 'Scheme', value: portfolio.schemeName },
+          { label: 'Temporary Monthly Amount', value: `₹${amount} / month`, highlight: true },
+          { label: 'Duration', value: `${cycles} ${cycles === 1 ? 'Month' : 'Months'}` },
+          {
+            label: 'Automatic Resumption',
+            value: `${formatDateShort(resumptionDate)} (${formatINR(portfolio.monthlyAmount)})`,
+          },
+        ]}
+        reassurance="Autopay stays active. Your SIP resumes at regular amount automatically."
+        confirmLabel="Yes, Update Amount"
+        cancelLabel="Go Back"
+        onConfirm={handleExecuteStepDown}
+        onCancel={() => setShowConfirm(false)}
+      />
     </div>
   );
 };
-
