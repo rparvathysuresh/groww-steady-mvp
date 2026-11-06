@@ -2,6 +2,9 @@
   "name": "groww-steady",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
     "dev": "node -r ./scripts/patch-fs.js ./node_modules/next/dist/bin/next dev",
     "build": "node -r ./scripts/patch-fs.js ./node_modules/next/dist/bin/next build",

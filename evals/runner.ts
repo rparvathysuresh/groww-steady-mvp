@@ -256,16 +256,21 @@ export async function runEvaluationHarness(): Promise<EvalRunSummary> {
 
   // 8. Output results to disk
   const resultsDir = path.resolve(process.cwd(), 'evals', 'results');
-  if (!fs.existsSync(resultsDir)) {
-    fs.mkdirSync(resultsDir, { recursive: true });
+  try {
+    if (!fs.existsSync(resultsDir)) {
+      fs.mkdirSync(resultsDir, { recursive: true });
+    }
+
+    const timestampStr = new Date().toISOString().replace(/[:.]/g, '-');
+    const resultFilePath = path.join(resultsDir, `results_${timestampStr}.json`);
+    const latestFilePath = path.join(resultsDir, 'latest.json');
+
+    fs.writeFileSync(resultFilePath, JSON.stringify(summary, null, 2), 'utf-8');
+    fs.writeFileSync(latestFilePath, JSON.stringify(summary, null, 2), 'utf-8');
+    console.log(`Saved results to: ${latestFilePath}\n`);
+  } catch (err) {
+    console.warn(`Note: Could not persist results file to disk (read-only serverless environment):`, err);
   }
-
-  const timestampStr = new Date().toISOString().replace(/[:.]/g, '-');
-  const resultFilePath = path.join(resultsDir, `results_${timestampStr}.json`);
-  const latestFilePath = path.join(resultsDir, 'latest.json');
-
-  fs.writeFileSync(resultFilePath, JSON.stringify(summary, null, 2), 'utf-8');
-  fs.writeFileSync(latestFilePath, JSON.stringify(summary, null, 2), 'utf-8');
 
   console.log(`Evaluated ${total} test cases.`);
   console.log(`------------------------------------------------------`);
@@ -276,8 +281,7 @@ export async function runEvaluationHarness(): Promise<EvalRunSummary> {
   console.log(`• Overall Gate Pass Rate:       ${summary.overall_gate_pass_rate}%`);
   console.log(`• Fallback Invocation Rate:     ${summary.fallback_rate}%`);
   console.log(`• Average Latency:              ${summary.average_latency_ms} ms`);
-  console.log(`------------------------------------------------------`);
-  console.log(`Saved results to: ${latestFilePath}\n`);
+  console.log(`------------------------------------------------------\n`);
 
   return summary;
 }

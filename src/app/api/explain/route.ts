@@ -9,6 +9,9 @@ import { callGroqCompletion } from '@/lib/ai/groq';
 import { evaluateCandidateText } from '@/lib/gate';
 import { STATIC_FALLBACKS } from '@/lib/fallbacks/templates';
 
+export const dynamic = 'force-dynamic';
+export const maxDuration = 15;
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();

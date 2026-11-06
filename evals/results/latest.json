@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-06T13:53:59.925Z",
+  "timestamp": "2026-11-06T14:16:13.928Z",
   "total_cases": 42,
   "intent_agreement_rate": 100,
   "behaviour_agreement_rate": 100,
@@ -62,7 +62,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 19,
+      "latency_ms": 17,
       "is_fallback": false
     },
     {
@@ -110,7 +110,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 2,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -158,7 +158,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -278,7 +278,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -326,7 +326,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -374,7 +374,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -398,7 +398,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -446,7 +446,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -494,7 +494,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -518,7 +518,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -596,7 +596,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": true
     },
     {
@@ -622,7 +622,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": true
     },
     {
@@ -698,7 +698,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -770,7 +770,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -796,7 +796,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": true
     },
     {
@@ -922,7 +922,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -946,7 +946,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     },
     {
@@ -1042,7 +1042,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": true,
       "must_not_include_passed": true,
-      "latency_ms": 0,
+      "latency_ms": 1,
       "is_fallback": false
     },
     {
@@ -1066,7 +1066,7 @@
       "urgency_violation_count": 0,
       "must_include_passed": false,
       "must_not_include_passed": true,
-      "latency_ms": 1,
+      "latency_ms": 0,
       "is_fallback": false
     }
   ]
