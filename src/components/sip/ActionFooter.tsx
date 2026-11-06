@@ -1,6 +1,7 @@
 import React from 'react';
 import { SlidersHorizontal, AlertTriangle, History, CheckCircle2 } from 'lucide-react';
 import { MandateStatus } from '@/lib/calc/types';
+import { CoachmarkDot } from '../shared/CoachmarkDot';
 
 interface ActionFooterProps {
   mandateStatus?: MandateStatus;
@@ -45,10 +46,12 @@ export const ActionFooter: React.FC<ActionFooterProps> = ({
       {/* Primary Mandate Adjustment CTA */}
       <button
         onClick={onFlexClick}
-        className="w-full bg-navy hover:bg-navy-dark text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-xs transition-colors flex items-center justify-center gap-2"
+        data-tour="steady-flex"
+        className="w-full bg-navy hover:bg-navy-dark text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-xs transition-colors flex items-center justify-center gap-2 relative scroll-mb-24"
       >
         <SlidersHorizontal size={16} />
         <span>Skip or Edit Amount (Steady Flex)</span>
+        <CoachmarkDot id="coachmark-steady-flex" label="Tip: Tap to test Skip or Step-Down" position="top-right" />
       </button>
 
       {/* Secondary Cancellation Action */}

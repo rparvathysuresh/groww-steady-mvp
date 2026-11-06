@@ -24,6 +24,7 @@ export const ActiveSIPCard: React.FC<ActiveSIPCardProps> = ({ portfolio, metrics
 
       <Link
         href={`/sip/${portfolio.id}`}
+        data-tour="active-sip"
         className="block bg-surface-card rounded-2xl p-4 border border-border-subtle shadow-xs hover:border-primary/40 hover:shadow-sm transition-all"
       >
         <div className="flex items-start justify-between gap-3">

@@ -17,7 +17,7 @@ export default function DashboardPage() {
     <MobileFrame>
       <div className="p-4 space-y-4">
         {/* Top greeting & scenario persona pill */}
-        <div className="flex items-center justify-between">
+        <div data-tour="welcome" className="flex items-center justify-between p-2.5 rounded-2xl bg-white border border-gray-100 shadow-xs">
           <div>
             <span className="text-xs text-gray-500 font-medium">Welcome back,</span>
             <h1 className="text-lg font-bold text-navy">{portfolio.personaName}</h1>

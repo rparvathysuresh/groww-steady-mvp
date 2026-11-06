@@ -13,7 +13,7 @@ export const SIPHeader: React.FC<SIPHeaderProps> = ({ portfolio }) => {
   const isSteppedDown = portfolio.mandateStatus === 'STEPPED_DOWN';
 
   return (
-    <div className="bg-surface-card rounded-2xl p-4 border border-border-subtle shadow-xs space-y-3">
+    <div data-tour="sip-header" className="bg-surface-card rounded-2xl p-4 border border-border-subtle shadow-xs space-y-3">
       <div className="flex items-start justify-between">
         <div>
           <span className="text-[10px] font-bold uppercase tracking-wider text-primary-dark">

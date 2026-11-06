@@ -24,6 +24,9 @@ build
 # Vercel
 .vercel
 
+# Eval artifacts
+evals/results/results_*.json
+
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts

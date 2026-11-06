@@ -3,6 +3,7 @@ import { ComputedMetrics } from '@/lib/calc/types';
 import { formatINR } from '@/lib/utils/format';
 import { AccessibleBadge } from '../shared/AccessibleBadge';
 import { HelpCircle, Info } from 'lucide-react';
+import { CoachmarkDot } from '../shared/CoachmarkDot';
 
 interface MetricGridProps {
   metrics: ComputedMetrics;
@@ -23,7 +24,7 @@ export const MetricGrid: React.FC<MetricGridProps> = ({ metrics, onJargonClick }
   } = metrics;
 
   return (
-    <div className="bg-surface-card rounded-2xl p-4 border border-border-subtle shadow-xs space-y-4">
+    <div className="bg-surface-card rounded-2xl p-4 border border-border-subtle shadow-xs space-y-4 scroll-mt-24">
       {/* Returns Banner */}
       <div className="flex items-center justify-between pb-3 border-b border-gray-100">
         <div>
@@ -43,10 +44,12 @@ export const MetricGrid: React.FC<MetricGridProps> = ({ metrics, onJargonClick }
             <span className="text-xs text-gray-400">Annualised XIRR</span>
             <button
               onClick={() => onJargonClick?.('XIRR')}
-              className="text-gray-400 hover:text-navy"
+              data-tour="jargon-xirr"
+              className="text-gray-400 hover:text-navy relative inline-flex items-center"
               title="Learn about XIRR"
             >
               <HelpCircle size={12} />
+              <CoachmarkDot id="coachmark-jargon-xirr" label="Tip: Tap XIRR for definition" position="top-right" />
             </button>
           </div>
           <div

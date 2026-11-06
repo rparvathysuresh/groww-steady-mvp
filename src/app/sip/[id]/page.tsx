@@ -44,7 +44,8 @@ export default function SIPDetailPage() {
         {/* 4. Ask Steady Context Assistant CTA */}
         <button
           onClick={() => setIsChatOpen(true)}
-          className="w-full bg-emerald-50/80 hover:bg-emerald-100/80 border border-emerald-200/90 text-primary-dark font-semibold text-xs py-2.5 px-4 rounded-xl transition-all flex items-center justify-between shadow-xs"
+          data-tour="ask-steady"
+          className="w-full bg-emerald-50/80 hover:bg-emerald-100/80 border border-emerald-200/90 text-primary-dark font-semibold text-xs py-2.5 px-4 rounded-xl transition-all flex items-center justify-between shadow-xs scroll-mt-24 scroll-mb-24"
         >
           <div className="flex items-center gap-2">
             <Sparkles size={15} />

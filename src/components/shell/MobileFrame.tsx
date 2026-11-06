@@ -6,6 +6,8 @@ import { TopNav } from './TopNav';
 import { BottomNav } from './BottomNav';
 import { InactiveTabModal } from './InactiveTabModal';
 import { ResetControl } from './ResetControl';
+import { FeatureDiscoveryModal } from './FeatureDiscoveryModal';
+import { GuidedTour } from './GuidedTour';
 
 interface MobileFrameProps {
   children: React.ReactNode;
@@ -44,6 +46,12 @@ export const MobileFrame: React.FC<MobileFrameProps> = ({
 
         {/* Global Floating Demo Reset Control */}
         <ResetControl />
+
+        {/* Element-Anchored Step-by-Step Feature Discovery Tour */}
+        <GuidedTour />
+
+        {/* Global Feature Discovery & Help Modal */}
+        <FeatureDiscoveryModal />
       </div>
     </div>
   );

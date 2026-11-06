@@ -5,6 +5,7 @@ import { PortfolioState, ComputedMetrics } from '@/lib/calc/types';
 import { formatINR, formatDateShort } from '@/lib/utils/format';
 import { Sparkles, Layers, ArrowUpRight, TrendingDown } from 'lucide-react';
 import { CheckedChip } from './CheckedChip';
+import { CoachmarkDot } from '@/components/shared/CoachmarkDot';
 
 interface DipCardProps {
   portfolio: PortfolioState;
@@ -73,8 +74,10 @@ export const DipCard: React.FC<DipCardProps> = ({ portfolio, metrics }) => {
   return (
     <div
       data-testid="dip-card"
-      className="bg-surface-card rounded-2xl p-4 border border-border-subtle shadow-xs space-y-3.5 transition-all"
+      data-tour="dip-card"
+      className="bg-surface-card rounded-2xl p-4 border border-border-subtle shadow-xs space-y-3.5 transition-all relative scroll-mt-24"
     >
+      <CoachmarkDot id="coachmark-dip-card" label="Tip: Tap to read dip explanation" position="top-right" />
       {/* 1. Neutral Title */}
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-2">
