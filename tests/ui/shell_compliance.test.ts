@@ -46,5 +46,14 @@ describe('Phase 2: Shell Compliance & Legal Guardrails', () => {
     store.clearInactiveNotice();
     expect(useSessionStore.getState().inactiveNotice).toBeNull();
   });
+
+  it('verifies all scenarios have complete, unabbreviated descriptions', () => {
+    Object.values(ALL_SCENARIOS).forEach((sc) => {
+      expect(sc.description).toBeDefined();
+      expect(sc.description.length).toBeGreaterThan(50);
+      expect(sc.description.endsWith('.')).toBe(true);
+      expect(sc.description).not.toContain('...');
+    });
+  });
 });
 

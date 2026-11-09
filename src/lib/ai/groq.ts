@@ -57,7 +57,12 @@ export async function callGroqCompletion(options: GroqCompletionOptions): Promis
 
     clearTimeout(timeoutId);
 
-    const text = response.choices[0]?.message?.content?.trim();
+    const choice = response.choices[0];
+    if (choice?.finish_reason === 'length') {
+      throw new Error('Groq response was truncated due to token limit.');
+    }
+
+    const text = choice?.message?.content?.trim();
     if (!text) {
       throw new Error('Groq returned empty response.');
     }

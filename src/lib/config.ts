@@ -18,7 +18,7 @@ export const APP_CONFIG = {
   GROQ_MODEL: process.env.GROQ_MODEL || "openai/gpt-oss-120b",
   GROQ_FAST_MODEL: process.env.GROQ_FAST_MODEL || "openai/gpt-oss-20b",
   LLM_TEMPERATURE: 0.1,
-  LLM_MAX_TOKENS: 150,
+  LLM_MAX_TOKENS: 350,
   LLM_TIMEOUT_MS: 4500, // Hard abort threshold before falling back to static templates
 
   // Regulatory & Educational Copy

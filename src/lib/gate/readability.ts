@@ -15,8 +15,22 @@ export function checkReadability(text: string): ReadabilityCheckResult {
     return { passed: true, sentenceCount: 0, wordCount: 0 };
   }
 
+  const trimmed = text.trim();
+
+  // Verify that the text ends with complete sentence-terminating punctuation (. ! ?)
+  // Allow optional closing quote or parenthesis e.g. ." or .')
+  const endsWithPunctuation = /[.!?]['")]?$/.test(trimmed);
+  if (!endsWithPunctuation) {
+    return {
+      passed: false,
+      sentenceCount: 0,
+      wordCount: 0,
+      reason: 'Explanation is incomplete and does not end with terminal punctuation (. ! ?).',
+    };
+  }
+
   // Replace decimals within numbers (e.g., 176.40, 14.8017) so they are not treated as sentence boundaries
-  const cleanedForSentences = text.replace(/\b\d+\.\d+\b/g, '0');
+  const cleanedForSentences = trimmed.replace(/\b\d+\.\d+\b/g, '0');
 
   // Split into sentences using punctuation boundaries (. ! ?)
   const sentences = cleanedForSentences
@@ -24,7 +38,7 @@ export function checkReadability(text: string): ReadabilityCheckResult {
     .map((s) => s.trim())
     .filter((s) => s.length > 0);
 
-  const words = text
+  const words = trimmed
     .split(/\s+/)
     .map((w) => w.trim())
     .filter((w) => w.length > 0);

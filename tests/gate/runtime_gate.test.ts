@@ -53,6 +53,19 @@ describe('Phase 3: The 6-Point Runtime Evaluation Gate', () => {
     expect(checkReadability(validReadability).passed).toBe(true);
   });
 
+  it('Check 4 (Readability): Rejects incomplete answers that cut off mid-sentence without terminal punctuation', () => {
+    const truncatedAnswer = 'Your portfolio’s value is ₹7,258.04, which is lower than the total amount you have invested (₹7,500), so the absolute profit';
+    const check = checkReadability(truncatedAnswer);
+    expect(check.passed).toBe(false);
+    expect(check.reason).toContain('terminal punctuation');
+
+    // And through evaluateCandidateText, falls back to deterministic copy
+    const result = evaluateCandidateText(truncatedAnswer, allowedNumbers, fallbackCopy);
+    expect(result.passed).toBe(false);
+    expect(result.isFallback).toBe(true);
+    expect(result.output).toBe(fallbackCopy);
+  });
+
   it('passes all 6 checks for a grounded, compliant response', () => {
     const compliantText = 'Your 3 instalments totaling ₹7,500 have bought 43.4974 units. Market prices fluctuate daily, while your units remain owned in your account.';
     const result = evaluateCandidateText(compliantText, allowedNumbers, fallbackCopy);

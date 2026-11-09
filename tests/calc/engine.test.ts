@@ -79,9 +79,9 @@ describe('Phase 1: Deterministic Engine - Core Math', () => {
     expect(metrics.additionalUnitsVsPrevious).toBeCloseTo(0.6264, 2);
   });
 
-  it('triggers isDebitNear accurately for Scenario B (debit in 4 days)', () => {
-    // Reference date: 2026-11-06, nextDebitDate: 2026-11-10 -> 4 days away
-    const metrics = computePortfolioMetrics(SCENARIO_B, '2026-11-06');
+  it('triggers isDebitNear accurately for Scenario B (debit in a few days - 25 Nov)', () => {
+    // Reference date: 2026-11-21, nextDebitDate: 2026-11-25 -> 4 days away
+    const metrics = computePortfolioMetrics(SCENARIO_B, '2026-11-21');
     expect(metrics.totalInvested).toBe(15000);
     expect(metrics.isDebitNear).toBe(true);
   });

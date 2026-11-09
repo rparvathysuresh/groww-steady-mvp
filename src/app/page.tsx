@@ -94,7 +94,7 @@ export default function LandingPage() {
                       {sc.scenarioName.split(':')[1] || sc.scenarioName}
                     </h3>
 
-                    <p className="text-[11px] text-slate-400 leading-relaxed line-clamp-3">
+                    <p className="text-[11px] text-slate-300 leading-relaxed">
                       {sc.description}
                     </p>
                   </div>
