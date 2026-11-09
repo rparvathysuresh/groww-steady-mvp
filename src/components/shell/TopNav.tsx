@@ -74,7 +74,8 @@ export const TopNav: React.FC<TopNavProps> = ({ title, showBack }) => {
         <Link
           href="/"
           title="Switch Scenario Persona"
-          className="flex items-center gap-1 text-xs font-medium text-navy bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded-full transition-colors"
+          data-tour="profile-persona"
+          className="flex items-center gap-1 text-xs font-medium text-navy bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded-full transition-colors relative"
         >
           <User size={12} className="text-primary-dark" />
           <span className="max-w-[70px] truncate">{portfolio.personaName}</span>

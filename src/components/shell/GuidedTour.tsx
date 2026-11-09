@@ -11,6 +11,7 @@ import {
   MessageSquare,
   SlidersHorizontal,
   Sparkles,
+  User,
 } from 'lucide-react';
 import { useSessionStore } from '@/lib/store/sessionStore';
 
@@ -32,8 +33,8 @@ export const TOUR_STEPS: TourStep[] = [
     id: 'welcome',
     targetAttr: 'welcome',
     stepNum: 1,
-    totalSteps: 5,
-    badge: '1 of 5 • Prototype Disclosure',
+    totalSteps: 6,
+    badge: '1 of 6 • Prototype Disclosure',
     title: 'Welcome to Steady, a prototype',
     body: 'This is a student concept built in a Groww-like experience, using sample data. It is not Groww and nothing here is investment advice. Please do not enter PAN, account or personal details.',
     preferredPlacement: 'bottom',
@@ -44,8 +45,8 @@ export const TOUR_STEPS: TourStep[] = [
     id: 'dip-card',
     targetAttr: 'dip-card',
     stepNum: 2,
-    totalSteps: 5,
-    badge: '2 of 5 • Point-of-Doubt Card',
+    totalSteps: 6,
+    badge: '2 of 6 • Point-of-Doubt Card',
     title: 'See what your numbers mean',
     body: 'On the SIP page, a card explains in plain words what your last instalment bought. Tap underlined terms like XIRR or NAV for a one-tap explanation.',
     preferredPlacement: 'bottom',
@@ -56,8 +57,8 @@ export const TOUR_STEPS: TourStep[] = [
     id: 'jargon-xirr',
     targetAttr: 'jargon-xirr',
     stepNum: 3,
-    totalSteps: 5,
-    badge: '3 of 5 • One-Tap Glossary',
+    totalSteps: 6,
+    badge: '3 of 6 • One-Tap Glossary',
     title: 'Tap XIRR or NAV for clarity',
     body: 'Tap the question mark next to XIRR or NAV for a one-tap plain-language explanation without financial jargon.',
     preferredPlacement: 'bottom',
@@ -68,8 +69,8 @@ export const TOUR_STEPS: TourStep[] = [
     id: 'ask-steady',
     targetAttr: 'ask-steady',
     stepNum: 4,
-    totalSteps: 5,
-    badge: '4 of 5 • Non-Advisory Assistant',
+    totalSteps: 6,
+    badge: '4 of 6 • Non-Advisory Assistant',
     title: 'Ask your own question',
     body: 'Ask about a term or something you see on screen. If you ask whether to buy, sell, continue or stop, Steady will decline and point to official sources. A "Checked" chip shows numbers come from sample data.',
     preferredPlacement: 'bottom',
@@ -80,13 +81,25 @@ export const TOUR_STEPS: TourStep[] = [
     id: 'steady-flex',
     targetAttr: 'steady-flex',
     stepNum: 5,
-    totalSteps: 5,
-    badge: '5 of 5 • Steady Flex Controls',
+    totalSteps: 6,
+    badge: '5 of 6 • Steady Flex Controls',
     title: 'Adjust without cancelling',
     body: 'Skip a month or lower the amount for a few months. This is simulated, so no real money moves, and Cancel stays available.',
     preferredPlacement: 'top',
-    actionButtonLabel: 'Start exploring',
+    actionButtonLabel: 'Next: Switch Persona',
     icon: <SlidersHorizontal size={16} className="text-emerald-600" />,
+  },
+  {
+    id: 'profile-persona',
+    targetAttr: 'profile-persona',
+    stepNum: 6,
+    totalSteps: 6,
+    badge: '6 of 6 • Scenario Switcher',
+    title: 'Explore other scenarios',
+    body: 'Click on your profile name button anytime to go to the landing page and check out different investor personas and market scenarios.',
+    preferredPlacement: 'bottom',
+    actionButtonLabel: 'Start exploring',
+    icon: <User size={16} className="text-emerald-600" />,
   },
 ];
 
@@ -163,6 +176,9 @@ export const GuidedTour: React.FC = () => {
         // Smart scroll alignment based on element height
         if (currentStep.id === 'dip-card') {
           // Dip card is tall: scroll it to top (respecting scroll-mt-24) so popover below has maximum room
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (currentStep.id === 'profile-persona') {
+          // Profile button is in TopNav at the very top of the screen
           targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
           // All other steps (including ask-steady): scroll cleanly to center of the viewport

@@ -44,10 +44,11 @@ describe('First-Open Feature Discovery Pop-Up & Guided Tour', () => {
     // 3. Navigation controls
     expect(html).toContain('Skip tour');
     expect(html).toContain('Next: See SIP Features');
-    expect(html).toContain('1 of 5');
+    expect(html).toContain('1 of 6');
   });
 
-  it('verifies all 5 tour steps strictly contain <= 40 words each', () => {
+  it('verifies all 6 tour steps strictly contain <= 40 words each', () => {
+    expect(TOUR_STEPS.length).toBe(6);
     TOUR_STEPS.forEach((step) => {
       const words = step.body.trim().split(/\s+/).length;
       expect(words).toBeLessThanOrEqual(40);
@@ -60,9 +61,10 @@ describe('First-Open Feature Discovery Pop-Up & Guided Tour', () => {
     expect(TOUR_STEPS[2].targetAttr).toBe('jargon-xirr');
     expect(TOUR_STEPS[3].targetAttr).toBe('ask-steady');
     expect(TOUR_STEPS[4].targetAttr).toBe('steady-flex');
+    expect(TOUR_STEPS[5].targetAttr).toBe('profile-persona');
 
     // Final step button is "Start exploring"
-    expect(TOUR_STEPS[4].actionButtonLabel).toBe('Start exploring');
+    expect(TOUR_STEPS[5].actionButtonLabel).toBe('Start exploring');
   });
 
   it('renders the Things to Try checklist inside the Help modal with all 5 required tasks', () => {
